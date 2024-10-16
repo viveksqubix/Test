@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Task Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .user {
+            margin-bottom: 20px;
+            border: 1px solid #1d1d1d;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .tasks, .subordinates {
+            margin-left: 20px;
+        }
+        .task, .subordinate {
+            margin-bottom: 10px;
+            border-left: 2px solid #007bff;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="userOverview"></div>
+
+<script>
+
+  
+var apiResponse=
+    {
+  "success": true,
+  "data": {
+    "userId": "66ed880a0fa515afaa1e99d5",
+    "userName": "vivek",
+    "designation": "DIVISIONAL SIGNAL AND TELECOMMUNICATION ENGINEER",
+    "individual": {
+      "userId": "66ed880a0fa515afaa1e99d5",
+      "totalTasks": 1,
+      "completedTasks": 1,
+      "pendingTasks": 0,
+      "completionPercentage": 100,
+      "tasks": []
+    },
+    "tasksAssignedByUser": {
+      "totalTasks": 0,
+      "completedTasks": 0,
+      "pendingTasks": 0,
+      "completionPercentage": 0,
+      "taskList": []
+    },
+    "subordinates": {
+      "totalTasks": 3,
+      "completedTasks": 0,
+      "pendingTasks": 3,
+      "completionPercentage": 0
+    },
+    "children": [
+      {
+        "userId": "66ed57168fa498e325db0eab",
+        "userName": "Heramba",
+        "designation": "SENIOR DIVISIONAL SIGNAL AND TELECOMMUNICATION ENGINEER",
+        "individual": {
+          "userId": "66ed57168fa498e325db0eab",
+          "totalTasks": 1,
+          "completedTasks": 0,
+          "pendingTasks": 1,
+          "completionPercentage": 0,
+          "tasks": [
+            {
+              "taskId": "66f2a124e6f37dfbb6f1b66e",
+              "taskName": "Jshsj",
+              "description": "Nsjjsksn",
+              "status": "PENDING",
+              "assignedOn": "2024-09-24T11:23:16.284Z",
+              "startDate": "Sat Sep 28 2024 16:48:00 GMT+0530",
+              "endDate": null
+            }
+          ]
+        },
+        "tasksAssignedByUser": {
+          "totalTasks": 1,
+          "completedTasks": 0,
+          "pendingTasks": 1,
+          "completionPercentage": 0,
+          "taskList": [
+            {
+              "_id": "66f2a124e6f37dfbb6f1b66e",
+              "name": "Jshsj",
+              "description": "Nsjjsksn",
+              "start_date": "Sat Sep 28 2024 16:48:00 GMT+0530",
+              "end_date": null,
+              "status": "PENDING",
+              "assigned_to": [
+                "66ed57168fa498e325db0eab"
+              ],
+              "assigned_by": "66ed57168fa498e325db0eab",
+              "completed_by": [],
+              "__v": 0,
+              "createdAt": "2024-09-24T11:23:16.284Z",
+              "updatedAt": "2024-09-27T00:00:00.483Z"
+            }
+          ]
+        },
+        "subordinates": {
+          "totalTasks": 2,
+          "completedTasks": 0,
+          "pendingTasks": 2,
+          "completionPercentage": 0
+        },
+        "children": [
+          {
+            "userId": "66f3f02599cb74b12164dce9",
+            "userName": "Student",
+            "designation": "MICROWAVE TECHNICIAN",
+            "individual": {
+              "userId": "66f3f02599cb74b12164dce9",
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "tasks": []
+            },
+            "tasksAssignedByUser": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "taskList": []
+            },
+            "subordinates": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0
+            },
+            "children": []
+          },
+          {
+            "userId": "66f3e2a8e62a47a6139b57aa",
+            "userName": "Tapan",
+            "designation": "SENIOR DIVISIONAL SIGNAL AND TELECOMMUNICATION ENGINEER",
+            "individual": {
+              "userId": "66f3e2a8e62a47a6139b57aa",
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "tasks": []
+            },
+            "tasksAssignedByUser": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "taskList": []
+            },
+            "subordinates": {
+              "totalTasks": 2,
+              "completedTasks": 0,
+              "pendingTasks": 2,
+              "completionPercentage": 0
+            },
+            "children": [
+              {
+                "userId": "66f3e50dcc70d5508d4e80ca",
+                "userName": "",
+                "designation": "",
+                "individual": {
+                  "userId": "66f3e50dcc70d5508d4e80ca",
+                  "totalTasks": 0,
+                  "completedTasks": 0,
+                  "pendingTasks": 0,
+                  "completionPercentage": 0,
+                  "tasks": []
+                },
+                "tasksAssignedByUser": {
+                  "totalTasks": 0,
+                  "completedTasks": 0,
+                  "pendingTasks": 0,
+                  "completionPercentage": 0,
+                  "taskList": []
+                },
+                "subordinates": {
+                  "totalTasks": 0,
+                  "completedTasks": 0,
+                  "pendingTasks": 0,
+                  "completionPercentage": 0
+                },
+                "children": []
+              },
+              {
+                "userId": "66f4fbf82d8eb30ead0b207b",
+                "userName": "Goku",
+                "designation": "MICROWAVE TECHNICIAN",
+                "individual": {
+                  "userId": "66f4fbf82d8eb30ead0b207b",
+                  "totalTasks": 2,
+                  "completedTasks": 0,
+                  "pendingTasks": 2,
+                  "completionPercentage": 0,
+                  "tasks": [
+                    {
+                      "taskId": "66f82ff94708577de7f5f671",
+                      "taskName": "2",
+                      "description": "",
+                      "status": "PENDING",
+                      "assignedOn": "2024-09-28T16:34:01.767Z",
+                      "startDate": "Mon Sep 02 2024 05:30:00 GMT+0530",
+                      "endDate": null
+                    },
+                    {
+                      "taskId": "66fff73a8ec364cc6eb3f7b4",
+                      "taskName": "L6T3TestingofallC/ONsignals&amp;EmergencyOperations",
+                      "description": "",
+                      "status": "PENDING",
+                      "assignedOn": "2024-10-04T14:10:02.571Z",
+                      "startDate": "Wed Oct 30 2024 05:30:00 GMT+0530",
+                      "endDate": null
+                    }
+                  ]
+                },
+                "tasksAssignedByUser": {
+                  "totalTasks": 0,
+                  "completedTasks": 0,
+                  "pendingTasks": 0,
+                  "completionPercentage": 0,
+                  "taskList": []
+                },
+                "subordinates": {
+                  "totalTasks": 0,
+                  "completedTasks": 0,
+                  "pendingTasks": 0,
+                  "completionPercentage": 0
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "userId": "66f4fbf02d8eb30ead0b2070",
+            "userName": "Kirtti",
+            "designation": "SENIOR SECTION ENGINEER (SIGNAL)",
+            "individual": {
+              "userId": "66f4fbf02d8eb30ead0b2070",
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "tasks": []
+            },
+            "tasksAssignedByUser": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "taskList": []
+            },
+            "subordinates": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0
+            },
+            "children": []
+          },
+          {
+            "userId": "66f3b91026f9e57e97914106",
+            "userName": "Test 1",
+            "designation": "SENIOR SECTION ENGINEER (SIGNAL)",
+            "individual": {
+              "userId": "66f3b91026f9e57e97914106",
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "tasks": []
+            },
+            "tasksAssignedByUser": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "taskList": []
+            },
+            "subordinates": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "userId": "66f4ff4b6e6f8cc360ccfb29",
+        "userName": "Vivek Ranjan Sahoo",
+        "designation": "ASSISTANT SIGNAL AND TELECOMMUNICATION ENGINEER",
+        "individual": {
+          "userId": "66f4ff4b6e6f8cc360ccfb29",
+          "totalTasks": 0,
+          "completedTasks": 0,
+          "pendingTasks": 0,
+          "completionPercentage": 0,
+          "tasks": []
+        },
+        "tasksAssignedByUser": {
+          "totalTasks": 0,
+          "completedTasks": 0,
+          "pendingTasks": 0,
+          "completionPercentage": 0,
+          "taskList": []
+        },
+        "subordinates": {
+          "totalTasks": 0,
+          "completedTasks": 0,
+          "pendingTasks": 0,
+          "completionPercentage": 0
+        },
+        "children": [
+          {
+            "userId": "66f7929d4708577de7f5d908",
+            "userName": "vkkk",
+            "designation": "SENIOR SECTION ENGINEER INCHARGE",
+            "individual": {
+              "userId": "66f7929d4708577de7f5d908",
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "tasks": []
+            },
+            "tasksAssignedByUser": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0,
+              "taskList": []
+            },
+            "subordinates": {
+              "totalTasks": 0,
+              "completedTasks": 0,
+              "pendingTasks": 0,
+              "completionPercentage": 0
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+
+
+
+    function createUserOverview(data) {
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('user');
+
+        // User details
+        userDiv.innerHTML = `
+            <h3>${data.userName} (${data.designation})</h3>
+            <p>Total Tasks: ${data.individual.totalTasks}</p>
+            <p>Completed Tasks: ${data.individual.completedTasks}</p>
+            <p>Pending Tasks: ${data.individual.pendingTasks}</p>
+            <p>Completion Percentage: ${data.individual.completionPercentage}%</p>
+        `;
+
+        // Display tasks
+        const tasksDiv = document.createElement('div');
+        tasksDiv.classList.add('tasks');
+        tasksDiv.innerHTML = '<h4>Tasks:</h4>';
+
+        if (data.individual.tasks.length > 0) {
+            data.individual.tasks.forEach(task => {
+                const taskDiv = document.createElement('div');
+                taskDiv.classList.add('task');
+                taskDiv.innerHTML = `
+                    <strong>${task.taskName}</strong>: ${task.description} (Status: ${task.status})
+                `;
+                tasksDiv.appendChild(taskDiv);
+            });
+        } else {
+            tasksDiv.innerHTML += '<p>No tasks assigned.</p>';
+        }
+
+        userDiv.appendChild(tasksDiv);
+
+        // Display subordinates
+        const subordinatesDiv = document.createElement('div');
+        subordinatesDiv.classList.add('subordinates');
+        subordinatesDiv.innerHTML = `<h4>Subordinates:</h4>
+            <p>Total Tasks: ${data.subordinates.totalTasks}</p>
+            <p>Completed Tasks: ${data.subordinates.completedTasks}</p>
+            <p>Pending Tasks: ${data.subordinates.pendingTasks}</p>
+            <p>Completion Percentage: ${data.subordinates.completionPercentage}%</p>`
+
+        if (data.children.length > 0) {
+            data.children.forEach(child => {
+                const childDiv = createUserOverview(child);
+                subordinatesDiv.appendChild(childDiv);
+            });
+        } else {
+            subordinatesDiv.innerHTML += '<p>No subordinates.</p>';
+        }
+
+        userDiv.appendChild(subordinatesDiv);
+        return userDiv;
+    }
+
+    // Call the function and append to the main overview
+    const userOverviewDiv = document.getElementById('userOverview');
+    const userOverview = createUserOverview(apiResponse.data);
+    userOverviewDiv.appendChild(userOverview);
+
+</script>
+
+</body>
+</html>
